@@ -1,8 +1,6 @@
 # 3DS Video Converter
 
-A Node.js server that hosts a website that lets you, on the New Nintendo 3DS browser, put in a link to any video and it will convert it to the correct format and you can watch the video on the 3DS.
-
-This tool converts videos to a format compatible with the Nintendo 3DS browser, using FFmpeg.
+A Node.js server that hosts a website that converts videos to a format compatible with the Nintendo 3DS browser and lets you watch them on the 3DS. Simply put in a link to any video and it will convert it and serve it to you.
 
 ### Usage
 
@@ -24,9 +22,20 @@ The server supports converting videos to the following formats:
 
 This is because the New Nintendo 3DS browser only supports these formats.
 
+### How It Works
+
+The server works by using [ffmpeg](https://ffmpeg.org/) to convert the video to the desired format. It uses a very conservative set of settings to ensure maximum compatibility with the New Nintendo 3DS browser.
+
+The server uses [Node.js](https://nodejs.org/) to host the website and handle video conversions.
+
+The website must be served over HTTPS to be accessible on the New Nintendo 3DS. The server uses [mkcert](https://github.com/FiloSottile/mkcert) to generate a self-signed certificate for the HTTPS server.
+
+The video must be served over HTTP for maximum compatibility with the New Nintendo 3DS browser. This is likely because the server is on the local network rather than an actual web server with proper SSL certificates.
+
 ### Known Issues
 
-* idk
+* The server currently only supports video playback over HTTP.
+* The 3DS browser does not support copying link addresses to the clipboard, which makes it difficult to enter video URLs.
 
 ### Changelog
 
